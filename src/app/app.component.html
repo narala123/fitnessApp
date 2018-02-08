@@ -7,11 +7,14 @@
 				</a>
 			</div>
 			<ul class="shopping_grid">
-				<a routerLink="/registration" routerLinkActive="active">
+				<a *ngIf="!authService.loggedIn()" routerLink="/registration" routerLinkActive="active">
 					<li>Join</li>
 				</a>
-				<a routerLink="/login" routerLinkActive="active">
+				<a *ngIf="!authService.loggedIn()" routerLink="/login" routerLinkActive="active">
 					<li>Sign In</li>
+				</a>
+				<a *ngIf="authService.loggedIn()" (click)='userLogOut()' href='#'>
+					<li >Log Out</li>
 				</a>
 				<a href="#">
 					<li>

@@ -9,14 +9,17 @@
 			   <div class="col-md-6 login-right">
 			  	<h3>REGISTERED CUSTOMERS</h3>
 				<p>If you have an account with us, please log in.</p>
-				<form>
+				<form [formGroup]="lForm" (ngSubmit)="doLogin(lForm.value)">
 				  <div>
 					<span>Email Address<label>*</label></span>
-					<input type="text"> 
+				<input type="text" id="email"  placeholder="eMail" [formControl]="lForm.controls['email']" >
+             <p *ngIf="lForm.controls['email'].hasError('required') && lForm.controls['email'].touched">Please Enter Your Email </p>
+             <p *ngIf="lForm.controls['email'].hasError('pattern') && lForm.controls['email'].touched">please enter valid email</p>
 				  </div>
 				  <div>
 					<span>Password<label>*</label></span>
-					<input type="text"> 
+					<input type="password" placeholder="password" [formControl]="lForm.controls['password']" style='padding: 10px;width:96%'>
+          <p *ngIf="lForm.controls['password'].hasError('required') && lForm.controls['password'].touched">Please Enter Your Password</p>
 				  </div>
 				  <a class="forgot" href="#">Forgot Your Password?</a>
 				  <input type="submit" value="Login">

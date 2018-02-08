@@ -7,6 +7,9 @@ var userSchema = new Schema({
      email:String,
      password:{type:String},
      mobile:{type:String},
+     active:{type:Boolean},
+     address:{type:String},
+     userType:{type:Schema.Types.ObjectId},
      createdDate:{type:Date,default:Date.now()}
 });
 

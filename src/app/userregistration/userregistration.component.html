@@ -1,3 +1,4 @@
+
 <div class="about">
   <div class="container">
       <div class="register">
@@ -47,7 +48,7 @@
 							 <div>
 								<span>Password<label>*</label></span>
 								<input type="password" placeholder="password" [formControl]="rForm.controls['password']">
-                 <p *ngIf="rForm.controls['password'].hasError('required') && rForm.controls['password'].touched">Please Enter Your Password
+                 <p *ngIf="rForm.controls['password'].hasError('required') && rForm.controls['password'].touched">Please Enter Your Password</p>
                  <p *ngIf="rForm.controls['password'].hasError('pattern') && rForm.controls['password'].touched">Your Password Should 8-15 digits Contains atleast "a-zA-z,@!*0-9"charcters</p>
 
                </div>
@@ -62,7 +63,7 @@
 					 </div>
             <div class="clearfix"> </div>
            <div class="register-but">
-           <input type="submit" value="submit" [disabled]='!rForm.valid'>
+           <button type="submit" value="submit" class='btn btn-primary' [disabled]="!rForm.valid">Submit</button>
             <div class="clearfix"> </div>
            </div>
 				</form>
