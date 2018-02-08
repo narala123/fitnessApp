@@ -1,28 +1,41 @@
 <div class="about">
   <div class="container">
       <div class="register">
-		  	  <form [formGroup]="rForm" (ngSubmit)="userRegistartion(rForm.value)"> 
+		  	  <form [formGroup]="rForm" (ngSubmit)="userRegistartion(rForm.value)">
 				 <div class="register-top-grid">
 					<h3>PERSONAL INFORMATION</h3>
+
 					 <div>
-						<span>First Name<label>*</label></span>
-						<input type="text" formControlName="firstName"> 
-            
+             <span>First Name<label>*</label></span>
+						<input type="text" id="firstname" placeholder="First Name" [formControl]="rForm.controls['firstName']">
+             <p *ngIf="rForm.controls['firstName'].hasError('required') && rForm.controls['firstName'].touched">You must include a first name.</p>
 					 </div>
-           
+
 					 <div>
 						<span>Last Name<label>*</label></span>
-						<input type="text"  formControlName="lastName"> 
+						<input type="text" id="lastname"  placeholder="Last Name" [formControl]="rForm.controls['lastName']">
+             <p *ngIf="rForm.controls['lastName'].hasError('required') && rForm.controls['lastName'].touched">You must include a Last name.</p>
 					 </div>
+
 					 <div>
 						 <span>Email Address<label>*</label></span>
-						 <input type="text" formControlName="email"> 
+						 <input type="text" id="email"  placeholder="eMail" [formControl]="rForm.controls['email']" >
+             <p *ngIf="rForm.controls['email'].hasError('required') && rForm.controls['email'].touched">Please Enter Your Email </p>
+             <p *ngIf="rForm.controls['email'].hasError('pattern') && rForm.controls['email'].touched">please enter valid email</p>
 					 </div>
 
            <div>
 						 <span>Mobile No<label>*</label></span>
-						 <input type="text" formControlName="mobile"> 
+						 <input type="text" placeholder="Mobile" [formControl]="rForm.controls['mobile']" >
+             <p *ngIf="rForm.controls['mobile'].hasError('required') && rForm.controls['mobile'].touched">Please Enter Mobile Number
+             <p *ngIf="rForm.controls['mobile'].hasError('pattern') && rForm.controls['mobile'].touched">please Enter Your Valid 10digit Mobile Number</p>
 					 </div>
+
+           <div>
+             <span>Address<label>*</label></span>
+             <textarea type="text" id="Address" placeholder="" [formControl]="rForm.controls['Address']" rows="4"></textarea>
+             <p *ngIf="rForm.controls['Address'].hasError('required') && rForm.controls['Address'].touched">Please enter Your Permanent Address</p>
+           </div>
 
 					 <div class="clearfix"> </div>
 					   <a class="news-letter" href="#">
@@ -33,12 +46,18 @@
 						    <h3>LOGIN INFORMATION</h3>
 							 <div>
 								<span>Password<label>*</label></span>
-								<input type="password" formControlName="password">
-							 </div>
+								<input type="password" placeholder="password" [formControl]="rForm.controls['password']">
+                 <p *ngIf="rForm.controls['password'].hasError('required') && rForm.controls['password'].touched">Please Enter Your Password
+                 <p *ngIf="rForm.controls['password'].hasError('pattern') && rForm.controls['password'].touched">Your Password Should 8-15 digits Contains atleast "a-zA-z,@!*0-9"charcters</p>
+
+               </div>
 							 <div>
 								<span>Confirm Password<label>*</label></span>
-								<input type="password">
-							 </div>
+                 <input type="password" placeholder="confirm password" [formControl]="rForm.controls['confirmPassword']">
+                 <p *ngIf="rForm.controls['confirmPassword'].hasError('required') && rForm.controls['confirmPassword'].touched">Please confirm Your Password
+                 <p *ngIf="rForm.controls['confirmPassword'].hasError('pattern') && rForm.controls['confirmPassword'].touched">Your Password Should 8-15 digits Contains atleast "a-zA-z,@!*0-9"charcters</p>
+<p>{{errormeassege}}</p>
+               </div>
 							 <div class="clearfix"> </div>
 					 </div>
             <div class="clearfix"> </div>

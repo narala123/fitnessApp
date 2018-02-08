@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule,FormControl,FormBuilder,FormGroup,Validators,ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -30,7 +30,7 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     UserregistrationComponent,
     UserloginComponent,
-    
+
   ],
   imports: [
     BrowserModule,
