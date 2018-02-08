@@ -14,9 +14,8 @@ require('./config/routes')(app,express);
 
 app.listen(3000,function(result){
  console.log('i am listening at 3000');
-}); 
-
-mongoose.connect('mongodb://localhost/fitnessapp',function(err,result){
+});
+mongoose.connect('mongodb://appadmin:appadmin123@ds125388.mlab.com:25388/fitnessappdb',function(err,result){
    if(err){
        console.log(err);
 
@@ -24,6 +23,5 @@ mongoose.connect('mongodb://localhost/fitnessapp',function(err,result){
      console.log('db connected successfully');
 
    }
-
 
 });
